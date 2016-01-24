@@ -7,7 +7,7 @@ output:
 ---
 
 ## Loading and preprocessing the data
-Loading the data from my github repo, and converting date values into POXIXct date format. 
+Loading the data from my github repo, and converting date values into POSIXct date format. 
 ```{r}
 temp <- tempfile()
 url <- "https://github.com/valpo/RepData_PeerAssessment1/blob/master/activity.zip?raw=true"

@@ -1,7 +1,7 @@
 # Reproducible Research: Peer Assessment 1
 
 ## Loading and preprocessing the data
-Loading the data from my github repo, and converting date values into POXIXct date format. 
+Loading the data from my github repo, and converting date values into POSIXct date format. 
 
 ```r
 temp <- tempfile()
@@ -103,20 +103,11 @@ library(lattice)
 actvNoNa$weekday <- ifelse(as.integer(strftime(actvNoNa$date, "%u"))<6,"weekday","weekend")
 actvNoNa$weekday <- as.factor(actvNoNa$weekday)
 ds <- aggregate(steps ~ interval + weekday, actvNoNa, mean)
-densityplot(~steps|weekday,data = ds, 
-  	main="Activities by weekdays vs weekends",
-   xlab="Steps", 
-   layout=c(1,2))
-```
-
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)
-
-```r
 xyplot(steps~interval|weekday,data = ds, layout=c(1,2), 
        xlab="Interval", ylab="Number of steps", type="l")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-2.png)
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)
 
 
 
